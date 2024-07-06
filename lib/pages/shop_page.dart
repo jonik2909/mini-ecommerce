@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_ecommerce/components/my_drawer.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -9,8 +10,9 @@ class ShopPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Shop Page"),
+        title: const Text("Shop Page"),
       ),
+      drawer: MyDrawer(),
     );
   }
 }
