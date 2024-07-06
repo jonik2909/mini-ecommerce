@@ -5,28 +5,30 @@ class Shop extends ChangeNotifier {
   // products for sale
   final List<Product> _shop = [
     Product(
-      name: "Product 1",
+      name: "GARMENT-DYE SWEATSHIRT",
       price: 99.99,
-      description: "Product 1 Description",
-      imagePath: "imagePath",
+      description: "Long sleeve sweatshirt with a round neck and ribbed trims.",
+      imagePath: "assets/clothe1.jpg",
     ),
     Product(
-      name: "Product 2",
+      name: "TWEETY T-SHIRT",
       price: 99.99,
-      description: "Product 2 Description",
-      imagePath: "imagePath",
+      description:
+          "Two-piece co-ord. T-shirt with a round neck and short sleeves.",
+      imagePath: "assets/clothe2.jpg",
     ),
     Product(
-      name: "Product 3",
+      name: "CROCHET BERMUDA SHORTS",
       price: 99.99,
-      description: "Product 4 Description",
-      imagePath: "imagePath",
+      description: "Crochet knit Bermuda shorts with an elasticated waistband",
+      imagePath: "assets/clothe3.jpg",
     ),
     Product(
-      name: "Product 4",
+      name: "MINNIE T-SHIRT",
       price: 99.99,
-      description: "Product 4 Description",
-      imagePath: "imagePath",
+      description:
+          "Co-ord with a round neck and short sleeves. Short ribbed leggings with an elasticated waistband. MINNIE",
+      imagePath: "assets/clothe4.jpg",
     ),
   ];
 
