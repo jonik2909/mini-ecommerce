@@ -57,33 +57,40 @@ class CartPage extends StatelessWidget {
         children: [
           // cart list
           Expanded(
-            child: ListView.builder(
-              itemCount: cart.length,
-              itemBuilder: (context, index) {
-                // get individual item in  cart
-                final item = cart[index];
+            child: cart.isEmpty
+                ? Center(
+                    child: Text(
+                    "Cart is empty!",
+                    style: TextStyle(fontSize: 20),
+                  ))
+                : ListView.builder(
+                    itemCount: cart.length,
+                    itemBuilder: (context, index) {
+                      // get individual item in  cart
+                      final item = cart[index];
 
-                // return as a cart tile UI
-                return ListTile(
-                  title: Text(item.name),
-                  subtitle: Text(item.price.toStringAsFixed(2)),
-                  trailing: IconButton(
-                    icon: Icon(Icons.remove),
-                    onPressed: () => removeItemFromCart(context, item),
+                      // return as a cart tile UI
+                      return ListTile(
+                        title: Text(item.name),
+                        subtitle: Text(item.price.toStringAsFixed(2)),
+                        trailing: IconButton(
+                          icon: Icon(Icons.remove),
+                          onPressed: () => removeItemFromCart(context, item),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
           ),
 
           // pay button
-          Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: MyButton(
-              onTap: () => payButtonPressed(context),
-              child: Text('PAY NOW'),
-            ),
-          ),
+          if (cart.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: MyButton(
+                onTap: () => payButtonPressed(context),
+                child: Text('PAY NOW'),
+              ),
+            )
         ],
       ),
     );

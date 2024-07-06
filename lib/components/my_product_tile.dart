@@ -7,32 +7,6 @@ class MyProductTile extends StatelessWidget {
   final Product product;
   const MyProductTile({super.key, required this.product});
 
-  void addToCart(BuildContext context, Product product) {
-    // show a dialog box to ask user to  confirm to add cart
-    showDialog(
-      context: context,
-      builder: (builder) => AlertDialog(
-        content: Text("Add this item to your cart?"),
-        actions: [
-          // cancel button
-          MaterialButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('Cancel'),
-          ),
-
-          // yes button
-          MaterialButton(
-            onPressed: () {
-              Navigator.pop(context);
-              context.read<Shop>().addToCart(product);
-            },
-            child: Text('Yes'),
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -98,7 +72,7 @@ class MyProductTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: IconButton(
-                  onPressed: () => addToCart(context, product),
+                  onPressed: () => context.read<Shop>().addToCart(product),
                   icon: Icon(Icons.add),
                 ),
               )
